@@ -46,6 +46,7 @@ class TicketsModel
                     if(strlen($info_ticket_ids)==0){
                         $info_ticket_ids = $row["ticket_id"];
                     }
+
                     else{
                         $info_ticket_ids = $info_ticket_ids.",".$row["ticket_id"];
                     }
