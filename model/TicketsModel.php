@@ -39,7 +39,7 @@ class TicketsModel
             }
 
             if(in_array(43,$user_groups) || in_array(44,$user_groups) || in_array(12,$user_groups) || in_array(17,$user_groups) || in_array(46,$user_groups) ){
-                $info_tickets_query = "select ticket_id from ticket_activities where status = 5 and agent_id is null and pick_time is null";
+                $info_tickets_query = "select ticket_id from ticket_activities where status = 5 and agent_id is null and pick_time is null and group_id in ($groups)";
                 $res_info_ticket = mysqli_query($this->conn,$info_tickets_query);
                 $info_ticket_ids = "";
                 while ($row = mysqli_fetch_assoc($res_info_ticket)){
