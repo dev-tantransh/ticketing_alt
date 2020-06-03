@@ -50,11 +50,14 @@ class TicketsModel
                         $info_ticket_ids = $info_ticket_ids.",".$row["ticket_id"];
                     }
                 }
-                $info_tickets_query = "select * from ticket_list_views where id in ($info_ticket_ids)";
-                $res_info_tickets = mysqli_query($this->conn, $info_tickets_query);
-                while ($row = mysqli_fetch_assoc($res_info_tickets)){
-                    $gen_pool[] = $row;
+                if(strlen($info_ticket_ids) > 0){
+                    $info_tickets_query = "select * from ticket_list_views where id in ($info_ticket_ids)";
+                    $res_info_tickets = mysqli_query($this->conn, $info_tickets_query);
+                    while ($row = mysqli_fetch_assoc($res_info_tickets)){
+                        $gen_pool[] = $row;
+                    }
                 }
+
             }
 
 
